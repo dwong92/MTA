@@ -8,9 +8,13 @@ export default function SubwayButton({ trainGroups }) {
   return (
     <div className="trainButtonsContainer">
       {trainGroup.images.map((image, index) => (
-        <button key={index} className="mtaLineButton">
-            <img src={image} alt={`Train ${trainGroup.train[index]}`} className="train-icon" />
-        </button>
+          <button key={index} className="mtaLineButton">
+            <img
+              src={image}
+              alt={`Train ${trainGroup.train[index]}`}
+              className="train-icon"
+            />
+          </button>
       ))}
     </div>
   );
