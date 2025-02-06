@@ -15,6 +15,12 @@ module.exports = {
     open: true,
     hot: true,
     liveReload: true,
+    proxy: [
+      {
+        context: ["/subway"],
+        target: "http://localhost:3000",
+      },
+    ],
     static: {
       directory: path.resolve(__dirname, "client", "public"),
     },

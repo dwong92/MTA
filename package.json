@@ -4,14 +4,16 @@
   "description": "MTA Subway alerts",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/server.js",
-    "serve": "webpack-dev-server"
+    "backend": "nodemon server/server.js",
+    "frontend": "webpack-dev-server",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   },
   "author": "Donald Wong",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
+    "concurrently": "^9.1.2",
     "express": "^4.21.2",
     "file-loader": "^6.2.0",
     "gtfs-realtime-bindings": "^1.1.1",
