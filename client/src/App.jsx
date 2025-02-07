@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //Train Image
@@ -26,11 +26,13 @@ import w from "./assets/w.png";
 import z from "./assets/z.png";
 
 //Pages
-import HomePage from "./containers/HomePage.jsx";
-import TrainStatusPage from "./containers/TrainStatusPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import TrainStatusPage from "./pages/TrainStatusPage.jsx";
 import Header from "./containers/HeaderContainer";
 
 const App = () => {
+  const [data, setData] = useState([]);
+
   const trainGroups = [
     { name: "123", train: ["1", "2", "3"], images: [one, two, three] },
     { name: "456", train: ["4", "5", "6"], images: [four, five, six] },
@@ -43,15 +45,32 @@ const App = () => {
     { name: "JZ", train: ["J", "Z"], images: [j, z] },
   ];
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/subway");
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div>
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<HomePage trainGroups={trainGroups} />} />
+          <Route
+            path="/"
+            element={<HomePage trainGroups={trainGroups} data={data} />}
+          />
           <Route
             path="subwayGroup/:subwayGroup"
-            element={<TrainStatusPage trainGroups={trainGroups} />}
+            element={<TrainStatusPage trainGroups={trainGroups} data={data} />}
           />
         </Routes>
       </Router>

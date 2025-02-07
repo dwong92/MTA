@@ -34,3 +34,29 @@
     width: 30px;
     height: 30px;
 }
+
+.train-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  .train-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+  }
+  
+  .train-card h2 {
+    margin: 0 0 8px;
+  }
+  
+  .train-card p {
+    margin: 4px 0;
+  }
