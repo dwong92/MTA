@@ -1,9 +1,11 @@
 import React from "react";
+import MTA from "../assets/MTA.png";
 
-export default function Header({trainGroup}) {
+export default function HeaderContainer({ trainGroup }) {
   return (
     <div className=" headerContainer">
-      <h1 className="header">MTA Rider Alert</h1>
+      <img id="MTA-Logo" src={MTA} alt="MTA Logo" />
+      <h1>Rider Alert</h1>
     </div>
-  )
+  );
 }
