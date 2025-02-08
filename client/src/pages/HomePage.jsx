@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Header from "../containers/HeaderContainer";
 import SubwayGroupContainer from "../containers/SubwayGroupContainer";
 import Trains from "../components/Trains";
 

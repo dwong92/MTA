@@ -23,7 +23,9 @@ module.exports = {
     ],
     static: {
       directory: path.resolve(__dirname, "client", "public"),
+      serveIndex: true, // Ensures index.html is served
     },
+    
   },
   module: {
     rules: [

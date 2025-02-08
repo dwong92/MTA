@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 //Train Image
 import one from "./assets/1.png";
@@ -28,7 +28,8 @@ import z from "./assets/z.png";
 //Pages
 import HomePage from "./pages/HomePage.jsx";
 import TrainStatusPage from "./pages/TrainStatusPage.jsx";
-import Header from "./containers/HeaderContainer";
+import HeaderCointainer from "./containers/HeaderContainer";
+import HeaderContainer from "./containers/HeaderContainer";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -62,7 +63,7 @@ const App = () => {
   return (
     <div>
       <Router>
-        <Header />
+        <HeaderContainer />
         <Routes>
           <Route
             path="/"

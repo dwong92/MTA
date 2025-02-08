@@ -1,39 +1,119 @@
-.headerContainer{
-    display:flex;
-    justify-content: center;
-    align-items: center;
+.headerContainer {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  background-color: white;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size:large;
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  z-index: 100
 }
 
-.header{
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-style: solid;
+#MTA-Logo {
+  width: 65px;
+  height: auto;
+  padding-right: 15px;
 }
 
-.mtaLineButton{
-    width: 100px;
-    height: 100px;
+.subwayGroupContainer{
+  position: sticky;
+  top: 100px;
+  width: 100%;
+  height: auto;
+  padding-bottom: 10px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
+
+.subwayGroupContainerLayout{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+
+.mtaLineButton {
+  padding: 10px;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex; /* or flex if you want it to take full width */
+  align-items: center; /* Vertically center the images */
+  justify-content: center; /* Horizontally center if needed */
+  border-radius: 5px; /* Or any other border radius */
+  /* ... any other styles you want ... */
+}
+
+.mtaLineButton:hover {
+  background-color: #f0f0f0;
+}
+
+.groupImageContainer {
+  display: flex;
+  gap: 5px;
+}
+
+.subwaySingleContainer{
+  position: sticky;
+  top: 100px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.singleImageContainer {
+  display: flex;
+  padding: 15px;
+}
+
+.singleImageContainer:hover{
+  background-color: #f0f0f0;
+}
+
+.groupTrainIcon {
+  width: 40px; 
+  height: auto;
+
+}
+
+.singleTrainIconSelected {
+  filter: brightness(1);
+  width: 100px;
+  height: auto;
+}
+
+.singleTrainIconUnselected {
+  filter: brightness(1);
+  width: 100px;
+  height: auto;
+  opacity: .5;
+}
+
+
 
 .trainButtonsContainer{
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
-.subwayGroupContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.train-icon{
-    padding: 2px;
-    width: 30px;
-    height: 30px;
-}
+
+
 
 .train-container {
     display: flex;
@@ -60,3 +140,12 @@
   .train-card p {
     margin: 4px 0;
   }
+
+#backButton {
+  width: 100px;
+  height: auto;
+}
+
+#backButton:hover {
+  background-color: #f0f0f0;
+}
