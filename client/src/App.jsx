@@ -28,29 +28,74 @@ import z from "./assets/z.png";
 //Pages
 import HomePage from "./pages/HomePage.jsx";
 import TrainStatusPage from "./pages/TrainStatusPage.jsx";
-import HeaderCointainer from "./containers/HeaderContainer";
 import HeaderContainer from "./containers/HeaderContainer";
 
 const App = () => {
   const [data, setData] = useState([]);
 
   const trainGroups = [
-    { name: "123", train: ["1", "2", "3"], images: [one, two, three] },
-    { name: "456", train: ["4", "5", "6"], images: [four, five, six] },
-    { name: "7", train: ["7"], images: [seven] },
-    { name: "ACE", train: ["A", "C", "E"], images: [a, c, e] },
-    { name: "BDFM", train: ["B", "D", "F", "M"], images: [b, d, f, m] },
-    { name: "G", train: ["G"], images: [g] },
-    { name: "L", train: ["L"], images: [l] },
-    { name: "NQRW", train: ["N", "Q", "R", "W"], images: [n, q, r, w] },
-    { name: "JZ", train: ["J", "Z"], images: [j, z] },
+    {
+      name: "123",
+      train: ["1", "2", "3"],
+      images: { 1: one, 2: two, 3: three },
+    },
+    {
+      name: "456",
+      train: ["4", "5", "6"],
+      images: { 4: four, 5: five, 6: six },
+    },
+    { name: "7", train: ["7"], images: { 7: seven } },
+    { name: "ACE", train: ["A", "C", "E"], images: { A: a, C: c, E: e } },
+    {
+      name: "BDFM",
+      train: ["B", "D", "F", "M"],
+      images: { B: b, D: d, F: f, M: m },
+    },
+    { name: "G", train: ["G"], images: { G: g } },
+    { name: "L", train: ["L"], images: { L: l } },
+    {
+      name: "NQRW",
+      train: ["N", "Q", "R", "W"],
+      images: { N: n, Q: q, R: r, W: w },
+    },
+    { name: "JZ", train: ["J", "Z"], images: { J: j, Z: z } },
   ];
+
+  const images = {
+    "1": one,
+    "2": two,
+    "3": three,
+    "4": four,
+    "5": five,
+    "6": six,
+    "7": seven,
+    A: a,
+    C: c,
+    E: e,
+    B: b,
+    D: d,
+    F: f,
+    M: m,
+    G: g,
+    L: l,
+    N: n,
+    Q: q,
+    R: r,
+    W: w,
+    J: j,
+    Z: z,
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch("/subway");
         const result = await response.json();
+
+        for (let i = 0; i < result.length; i++) {
+          result[i].subwayImage = images[result[i].subway];
+        }
+
         setData(result);
       } catch (error) {
         console.log(error);
