@@ -14,6 +14,10 @@ export default function SubwaySingleContainer({
     navigate("/");
   };
 
+  const subwayButtons = Object.values(trainGroup.images).map((image, index) => (
+    <SubwayButton train={trainGroup.train[index]} image = {image} index = {index} trainToggle={trainToggle} trainSet = {trainSet}/>
+  ))
+
   return (
     <div className="subwaySingleContainer">
       <div onClick={() => handleClickBackButton()}>
@@ -24,15 +28,7 @@ export default function SubwaySingleContainer({
           id="backButton"
         />
       </div>
-      {trainGroup.images.map((image, index) => (
-        <SubwayButton
-          train={trainGroup.train[index]}
-          image={image}
-          index={index}
-          trainToggle={trainToggle}
-          trainSet={trainSet}
-        />
-      ))}
+      {subwayButtons}
     </div>
   );
 }

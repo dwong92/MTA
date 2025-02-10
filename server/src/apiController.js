@@ -82,15 +82,34 @@ ApiController.getSubwayStatus = async (req, res, next) => {
                     let alternative;
 
                     if (
-                      detail.headerText.translation[k].hasOwnProperty("text")
+                      detail.headerText.translation[k].hasOwnProperty("text") &&
+                      detail.headerText.translation[k].hasOwnProperty(
+                        "language"
+                      ) &&
+                      detail.headerText.translation[k].language === "en-html"
                     ) {
                       status = detail.headerText.translation[k].text;
-                      alternative =
-                        detail.descriptionText &&
-                        detail.descriptionText.translation &&
-                        detail.descriptionText.translation[k]
-                          ? detail.descriptionText.translation[k].text
-                          : "No details available";
+                    } else {
+                      continue;
+                    }
+
+                    if (
+                      detail.descriptionText &&
+                      detail.descriptionText.translation &&
+                      detail.descriptionText.translation[k] &&
+                      detail.descriptionText.translation[k].hasOwnProperty(
+                        "text"
+                      ) &&
+                      detail.descriptionText.translation[k].hasOwnProperty(
+                        "language"
+                      ) &&
+                      detail.descriptionText.translation[k].language ===
+                        "en-html" &&
+                      detail.descriptionText.translation[k].text !== "<p></p>"
+                    ) {
+                      alternative = detail.descriptionText.translation[k].text;
+                    } else {
+                      alternative = "No additional details available";
                     }
 
                     const subwayDetail = {

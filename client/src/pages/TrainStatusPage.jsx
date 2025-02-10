@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import SubwaySingleContainer from "../containers/SubwaySingleContainer";
-import SubwayButton from "../components/SubwayButton";
-import Trains from "../components/Trains";
-import backButton from "../assets/backButton.png";
+import TrainCard from "../components/TrainCard";
 
 export default function TrainStatusPage({ trainGroups, data }) {
   const { subwayGroup } = useParams();
@@ -28,10 +26,16 @@ export default function TrainStatusPage({ trainGroups, data }) {
 
   return (
     <div>
-      <SubwaySingleContainer trainGroup={trainGroup} trainToggle={trainToggle} trainSet={trainSet}/>
+      <SubwaySingleContainer
+        trainGroup={trainGroup}
+        trainToggle={trainToggle}
+        trainSet={trainSet}
+      />
       <div className="train-container">
-        {trainData.map((train, index) => (
-          <Trains key={index} train={train} />
+        {trainData.map((train) => (
+          <TrainCard
+            train={train}
+          />
         ))}
       </div>
     </div>
