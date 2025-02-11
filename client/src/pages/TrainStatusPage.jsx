@@ -25,7 +25,7 @@ export default function TrainStatusPage({ trainGroups, data }) {
   }, [trainSet, data]);
 
   return (
-    <div>
+    <div className="trainStatusContainer">
       <SubwaySingleContainer
         trainGroup={trainGroup}
         trainToggle={trainToggle}
