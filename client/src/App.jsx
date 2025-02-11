@@ -26,9 +26,10 @@ import w from "./assets/w.png";
 import z from "./assets/z.png";
 
 //Pages
+import HeaderContainer from "./containers/HeaderContainer";
+import SideBarContainer from "./containers/SideBarContainer.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import TrainStatusPage from "./pages/TrainStatusPage.jsx";
-import HeaderContainer from "./containers/HeaderContainer";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -62,13 +63,13 @@ const App = () => {
   ];
 
   const images = {
-    "1": one,
-    "2": two,
-    "3": three,
-    "4": four,
-    "5": five,
-    "6": six,
-    "7": seven,
+    1: one,
+    2: two,
+    3: three,
+    4: four,
+    5: five,
+    6: six,
+    7: seven,
     A: a,
     C: c,
     E: e,
@@ -106,21 +107,28 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <Router>
+    <Router>
+      <div className="appContainer">
         <HeaderContainer />
-        <Routes>
-          <Route
-            path="/"
-            element={<HomePage trainGroups={trainGroups} data={data} />}
-          />
-          <Route
-            path="subwayGroup/:subwayGroup"
-            element={<TrainStatusPage trainGroups={trainGroups} data={data} />}
-          />
-        </Routes>
-      </Router>
-    </div>
+        <div className="mainContentContainer">
+          <SideBarContainer trainGroups={trainGroups} />
+          <div className="mainContent">
+            <Routes>
+              <Route
+                path="/"
+                element={<HomePage trainGroups={trainGroups} data={data} />}
+              />
+              <Route
+                path="subwayGroup/:subwayGroup"
+                element={
+                  <TrainStatusPage trainGroups={trainGroups} data={data} />
+                }
+              />
+            </Routes>
+          </div>
+        </div>
+      </div>
+    </Router>
   );
 };
 

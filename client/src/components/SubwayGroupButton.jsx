@@ -13,8 +13,9 @@ export default function SubwayGroupButton({ trainGroup, images }) {
   ));
 
   return (
-    <div className="mtaLineButton" onClick={handleClick}>
-      <div className="groupImageContainer">{groupImage}</div>
+    <div className="groupImageContainer" onClick={handleClick}>
+      {groupImage}
     </div>
   );
+
 }
