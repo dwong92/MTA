@@ -1,10 +1,17 @@
+body {
+  background-color: whitesmoke;
+}
+
 .headerContainer {
+  background:#f8f9fa;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
   height: 100px;
   width: 100%;
-  background-color: white;
   display:flex;
   justify-content: center;
   align-items: center;
@@ -12,6 +19,7 @@
   font-family: "Roboto", serif;
   font-optical-sizing: auto;
   font-style: normal;
+  z-index: 100;
 }
 
 #MTA-Logo {
@@ -22,14 +30,16 @@
 
 .sideBarContainer {
   position: fixed;
-  width: 30%;
+  width: 20%;
   height: calc(100vh - 100px);
-  background-color: blue;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center; 
-  top: 100px;
+  top: 120px;
   left: 0;
   z-index: 99;
 }
@@ -39,10 +49,10 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  width: 70%;
-  margin-left: 30%;
-  margin-top: 100px;
-  height: calc(100vh - 100px);   
+  width: 80%;
+  margin-left: 20%;
+  margin-top: 120px;
+  height: calc(100vh - 110px);   
   overflow-y: auto;
 }
 
@@ -64,26 +74,32 @@
 }
 
 .groupTrainIcon {
-  width:50px;
+  width:40px;
   height: auto;
   max-width: 100%;
 
 }
-
-
 .subwaySingleContainer{
   position: fixed;
-  width: 70%;
+  width: 80%;
   height: 100px;
-  background-color: white;
-  top: 100px;
+  /* background-color: rgb(219, 235, 240); */
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  /* padding: 30px 30px 30px 30px; */
+  /* margin: 0px 0px 0px 30px; */
+  top: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .singleImageContainer {
   display: flex;
+  width: auto;
+  height: 75px;
   padding: 10px;
 }
 
@@ -115,7 +131,7 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
-    padding: 30px 30px 30px 30px;
+    margin: 30px 30px 30px 30px;
   }
 
   .train-container2 {
@@ -129,9 +145,10 @@
   }
   
   .train-card {
+    display: flex;
+    align-items: center;
     background: #f8f9fa;
     border-radius: 8px;
-    /* padding: 30px; */
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     font-family: "Roboto", serif;
@@ -140,10 +157,25 @@
   }
 
   .trainCardLogo {
-    width: 20px;
+    width: 30px;
     height: auto
   }
-  
+ 
+  .logoandtime {
+    left: 0;
+    width: 30%;
+    border-style: solid;
+    padding: 10px;
+    
+  }
+
+  .description {
+    left: 30%;
+    width: 70%;
+    padding: 10px;
+
+  }
+
   .train-card h2 {
     margin: 0 0 8px;
   }

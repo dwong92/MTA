@@ -20,9 +20,8 @@ export default function SubwaySingleContainer({
 
   return (
     <div className="subwaySingleContainer">
-      <div onClick={() => handleClickBackButton()}>
+      <div className="singleImageContainer" onClick={() => handleClickBackButton()}>
         <img
-          className="train-icon"
           src={backButton}
           alt="BackButton"
           id="backButton"
