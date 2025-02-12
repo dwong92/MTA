@@ -1,11 +1,5 @@
-.appContainer {
-  display: flex;
-  flex-direction: column;
-  height: 100vh
-}
-
 .headerContainer {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100px;
@@ -26,40 +20,32 @@
   padding-right: 15px;
 }
 
-.mainContentContainer {
-  display: flex;
-  width: 100%;
-  height: calc(100vh - 100px); /* Adjust for header */
-  overflow: hidden;
-}
-
-
 .sideBarContainer {
+  position: fixed;
   width: 30%;
-  height: calc(100vh - 100px); /* Ensure it extends below the header */
+  height: calc(100vh - 100px);
   background-color: blue;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
-  position: fixed;
+  align-items: center; 
   top: 100px;
   left: 0;
+  z-index: 99;
 }
 
-
-
-.mainContent {
-  width: 70%;
-  height: calc(100vh - 100px);
-  margin-left: 30%; /* To account for the fixed sidebar */
-  overflow-y: auto;
+.mainContentContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  
+  width: 70%;
+  margin-left: 30%;
+  margin-top: 100px;
+  height: calc(100vh - 100px);   
+  overflow-y: auto;
 }
+
 
 .groupImageContainer {
   width: 100%;
@@ -87,9 +73,8 @@
 
 .subwaySingleContainer{
   position: fixed;
-  width: 100%;
-  height: auto;
-  display: flex;
+  width: 70%;
+  height: 100px;
   background-color: white;
   top: 100px;
   display: flex;
@@ -125,13 +110,22 @@
 }
 
 .train-container {
-    /* margin-top: 75px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 16px;
-    padding: 0px 30px 30px 30px
+    padding: 30px 30px 30px 30px;
+  }
+
+  .train-container2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 30px 30px 30px 30px;
+    margin-top: 100px;
   }
   
   .train-card {
@@ -139,8 +133,10 @@
     border-radius: 8px;
     /* padding: 30px; */
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    width: 100%
-    ;
+    width: 100%;
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
   }
 
   .trainCardLogo {

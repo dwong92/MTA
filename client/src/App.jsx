@@ -108,26 +108,20 @@ const App = () => {
 
   return (
     <Router>
-      <div className="appContainer">
-        <HeaderContainer />
-        <div className="mainContentContainer">
-          <SideBarContainer trainGroups={trainGroups} />
-          <div className="mainContent">
-            <Routes>
-              <Route
-                path="/"
-                element={<HomePage trainGroups={trainGroups} data={data} />}
-              />
-              <Route
-                path="subwayGroup/:subwayGroup"
-                element={
-                  <TrainStatusPage trainGroups={trainGroups} data={data} />
-                }
-              />
-            </Routes>
-          </div>
-        </div>
-      </div>
+      <HeaderContainer />
+      <SideBarContainer trainGroups={trainGroups} />
+          <Routes>
+            <Route
+              path="/"
+              element={<HomePage trainGroups={trainGroups} data={data} />}
+            />
+            <Route
+              path="subwayGroup/:subwayGroup"
+              element={
+                <TrainStatusPage trainGroups={trainGroups} data={data} />
+              }
+            />
+          </Routes>
     </Router>
   );
 };

@@ -6,8 +6,13 @@ import TrainCard from "../components/TrainCard";
 export default function TrainStatusPage({ trainGroups, data }) {
   const { subwayGroup } = useParams();
   const [trainData, setTrainData] = useState([]);
-  const trainGroup = trainGroups.find((group) => group.name == subwayGroup);
+  let trainGroup = trainGroups.find((group) => group.name == subwayGroup);
   const [trainSet, setTrainSet] = useState(trainGroup.train);
+
+  useEffect(() => {
+    trainGroup = trainGroups.find((group) => group.name == subwayGroup);
+    setTrainSet(trainGroup.train)
+  }, [subwayGroup])
 
   const trainToggle = (train) => {
     setTrainSet(
@@ -24,18 +29,18 @@ export default function TrainStatusPage({ trainGroups, data }) {
     setTrainData(result);
   }, [trainSet, data]);
 
+ 
+
   return (
-    <div className="trainStatusContainer">
+    <div className="mainContentContainer">
       <SubwaySingleContainer
         trainGroup={trainGroup}
         trainToggle={trainToggle}
         trainSet={trainSet}
       />
-      <div className="train-container">
+      <div className="train-container2">
         {trainData.map((train) => (
-          <TrainCard
-            train={train}
-          />
+          <TrainCard train={train} />
         ))}
       </div>
     </div>
